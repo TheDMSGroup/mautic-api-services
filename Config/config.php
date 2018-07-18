@@ -14,9 +14,15 @@ return [
     'description' => 'Proxy function for service calls as an API.',
     'version'     => '1.0',
     'author'      => 'Mautic',
-
-    'services' => [
-        'models'       => [
+    'routes' => [
+        'api' => [
+            'mautic_api_services_standard' => [
+                'path'       => '/services/{service}/{endpoint}/',
+                'controller' => 'MauticApiServicesBundle:ServicesApi:initialize',
+                'method'     => 'GET',
+            ],
         ],
+    ],
+    'services' => [
     ],
 ];
