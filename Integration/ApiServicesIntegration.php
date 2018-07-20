@@ -64,9 +64,9 @@ class ApiServicesIntegration extends AbstractIntegration
                 'api_services_name',
                 'text',
                 [
-                    'label' => 'mautic.api_services.name',
+                    'label'      => 'mautic.api_services.name',
                     'data'       => !isset($data['api_services_name']) ? null : $data['api_services_name'],
-                    'attr'  => [
+                    'attr'       => [
                         'class'   => 'form-control',
                         'tooltip' => 'mautic.api_services.form.config.name',
                     ],
@@ -77,9 +77,9 @@ class ApiServicesIntegration extends AbstractIntegration
                 'api_services_alias',
                 'text',
                 [
-                    'label' => 'mautic.api_services.alias',
+                    'label'      => 'mautic.api_services.alias',
                     'data'       => !isset($data['api_services_alias']) ? null : $data['api_services_alias'],
-                    'attr'  => [
+                    'attr'       => [
                         'class'   => 'form-control',
                         'tooltip' => 'mautic.api_services.form.config.alias',
                     ],
@@ -90,9 +90,9 @@ class ApiServicesIntegration extends AbstractIntegration
                 'api_services_endpoint',
                 'text',
                 [
-                    'label' => 'mautic.api_services.endpoint',
+                    'label'      => 'mautic.api_services.endpoint',
                     'data'       => !isset($data['api_services_endpoint']) ? null : $data['api_services_endpoint'],
-                    'attr'  => [
+                    'attr'       => [
                         'class'   => 'form-control',
                         'tooltip' => 'mautic.api_services.form.config.endpoint',
                     ],
@@ -102,9 +102,9 @@ class ApiServicesIntegration extends AbstractIntegration
                 'api_services_description',
                 'textarea',
                 [
-                    'label' => 'mautic.api_services.description',
+                    'label'      => 'mautic.api_services.description',
                     'data'       => !isset($data['api_services_description']) ? null : $data['api_services_description'],
-                    'attr'  => [
+                    'attr'       => [
                         'class'   => 'form-control',
                         'tooltip' => 'mautic.api_services.form.config.description',
                     ],
@@ -114,9 +114,9 @@ class ApiServicesIntegration extends AbstractIntegration
                 'api_services_headers',
                 'textarea',
                 [
-                    'label' => 'mautic.api_services.headers',
+                    'label'      => 'mautic.api_services.headers',
                     'data'       => !isset($data['api_services_apikey']) ? null : $data['api_services_headers'],
-                    'attr'  => [
+                    'attr'       => [
                         'class'   => 'form-control',
                         'tooltip' => 'mautic.api_services.form.config.headers',
                     ],
@@ -126,9 +126,9 @@ class ApiServicesIntegration extends AbstractIntegration
                 'api_services_exclude_headers',
                 'textarea',
                 [
-                    'label' => 'mautic.api_services.exclude_headers',
+                    'label'      => 'mautic.api_services.exclude_headers',
                     'data'       => !isset($data['api_services_exclude_headers']) ? null : $data['api_services_exclude_headers'],
-                    'attr'  => [
+                    'attr'       => [
                         'class'   => 'form-control',
                         'tooltip' => 'mautic.api_services.form.config.exclude_headers',
                     ],

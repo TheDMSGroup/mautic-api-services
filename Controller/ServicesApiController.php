@@ -12,9 +12,10 @@
 namespace MauticPlugin\MauticApiServicesBundle\Controller;
 
 use FOS\RestBundle\Util\Codes;
-use Mautic\ApiBundle\Controller\CommonApiController;
 use GuzzleHttp\Client;
 use JMS\Serializer\SerializationContext;
+use Mautic\ApiBundle\Controller\CommonApiController;
+
 /**
  * Class FieldApiController.
  */
@@ -29,10 +30,10 @@ class ServicesApiController extends CommonApiController
     public function initializeAction($service)
     {
         // build request body
-        $params = $this->getRequest()->query->all();
-        $content = $this->getRequest()->getContent();
+        $params            = $this->getRequest()->query->all();
+        $content           = $this->getRequest()->getContent();
         $params['content'] = $content;
-        $body = json_encode($params);
+        $body              = json_encode($params);
 
         // build request headers
         $blacklist = [
@@ -42,29 +43,24 @@ class ServicesApiController extends CommonApiController
             'php-auth-pw',
             'x-php-ob-level',
         ];
-        $curlHeaders = [];
-        $settings = $this->getIntegrationSetting();
+        $curlHeaders   = [];
+        $settings      = $this->getIntegrationSetting();
         $configHeaders = explode(',', $settings['api_services_headers']);
-        foreach($configHeaders as $configHeader)
-        {
+        foreach ($configHeaders as $configHeader) {
             $headerValue = explode(':', $configHeader);
-            if(isset($headerValue[0]) && isset($headerValue[1]))
-            {
-                $blacklist[] = trim($headerValue[0]);
+            if (isset($headerValue[0]) && isset($headerValue[1])) {
+                $blacklist[]                        = trim($headerValue[0]);
                 $curlHeaders[trim($headerValue[0])] = trim($headerValue[1]);
             }
         }
         $excludeHeadersStr = $settings['api_services_exclude_headers'];
-        $excludeHeaders = explode(',', $excludeHeadersStr);
-        foreach($excludeHeaders as $excludeHeader)
-        {
+        $excludeHeaders    = explode(',', $excludeHeadersStr);
+        foreach ($excludeHeaders as $excludeHeader) {
             $blacklist[] = trim($excludeHeader);
         }
         $headers = $this->getRequest()->headers->all();
-        foreach($headers as $headerKey => $value)
-        {
-            if(!in_array($headerKey, $blacklist))
-            {
+        foreach ($headers as $headerKey => $value) {
+            if (!in_array($headerKey, $blacklist)) {
                 $curlHeaders[$headerKey] = $value[0];
             }
         }
@@ -90,9 +86,8 @@ class ServicesApiController extends CommonApiController
         ];
 
         $this->client = new Client($settings);
-        $data = $this->client->request('GET', $url, $settings);
+        $data         = $this->client->request('GET', $url, $settings);
         $responceBody = $data->getBody()->getContents();
-
 
         // return service responce to requestor
         $view    = $this->view($responceBody, Codes::HTTP_OK);
@@ -122,7 +117,7 @@ class ServicesApiController extends CommonApiController
             }
         }
         if (!empty($key)) {
-            if (isset($this->integrationSettings[$key])){
+            if (isset($this->integrationSettings[$key])) {
                 return $this->integrationSettings[$key];
             } else {
                 return null;

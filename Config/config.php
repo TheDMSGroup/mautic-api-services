@@ -14,7 +14,7 @@ return [
     'description' => 'Proxy function for service calls as an API.',
     'version'     => '1.0',
     'author'      => 'Mautic',
-    'routes' => [
+    'routes'      => [
         'api' => [
             'mautic_api_services_standard' => [
                 'path'       => '/services/{service}',
