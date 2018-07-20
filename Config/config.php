@@ -17,12 +17,12 @@ return [
     'routes' => [
         'api' => [
             'mautic_api_services_standard' => [
-                'path'       => '/services/{service}/{endpoint}/',
+                'path'       => '/services/{service}',
                 'controller' => 'MauticApiServicesBundle:ServicesApi:initialize',
                 'method'     => 'GET',
             ],
         ],
     ],
-    'services' => [
+    'services'    => [
     ],
 ];
