@@ -1,5 +1,5 @@
 {
-    "name": "thedmsgroup/mautic-api-services",
+    "name": "thedmsgroup/mautic-api-services-bundle",
     "description": "Extends Mautic API for configurable service calls.",
     "keywords": ["mautic","marketing","marketing automation","plugin"],
     "type": "mautic-plugin",
