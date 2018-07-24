@@ -12,7 +12,6 @@
 namespace MauticPlugin\MauticApiServicesBundle\Integration;
 
 use Mautic\PluginBundle\Integration\AbstractIntegration;
-use MauticPlugin\MauticApiServicesBundle\Entity\ApiServiceEntity;
 
 /**
  * Class SourceIntegration.

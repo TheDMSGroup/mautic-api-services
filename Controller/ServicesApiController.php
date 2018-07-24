@@ -35,22 +35,20 @@ class ServicesApiController extends CommonApiController
         $params['content'] = $content;
         $body              = json_encode($params);
 
-
         // Get Settings for this request
         $apiServicesSettings      = $this->getIntegrationSetting();
-        $json = $apiServicesSettings['api_services_settings'];
-        $apiServiceArray = \GuzzleHttp\json_decode($json, true);
-        $apiServices = $apiServiceArray['apiservice'];
-        foreach($apiServices as $apiService){
-            if($apiService['alias'] === $service)
-            {
+        $json                     = $apiServicesSettings['api_services_settings'];
+        $apiServiceArray          = \GuzzleHttp\json_decode($json, true);
+        $apiServices              = $apiServiceArray['apiservice'];
+        foreach ($apiServices as $apiService) {
+            if ($apiService['alias'] === $service) {
                 break;
             }
         }
 
         // build request headers
         $curlHeaders   = [];
-        $blacklist = [
+        $blacklist     = [
             'authorization',
             'cookie',
             'php-auth-user',
