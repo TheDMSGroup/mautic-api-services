@@ -1,0 +1,87 @@
+{
+  "title": "Api Service Configurations",
+  "$schema": "apiservice.json",
+  "type": "object",
+  "format": "grid",
+  "options": {
+    "disable_collapse": true
+  },
+  "properties": {
+    "apiservice": {
+      "title": "Service Definitions",
+      "type": "array",
+      "format": "grid",
+      "uniqueItems": true,
+      "options": {
+        "disable_collapse": true
+      },
+      "items": {
+        "title": "Api Services:",
+        "$ref": "#/definitions/apiservice"
+      }
+    }
+  },
+  "definitions": {
+    "apiservice": {
+      "headerTemplate": "{{self.name}} - {{self.alias}}",
+      "type": "object",
+      "options": {
+        "collapsed": false,
+        "disable_collapse": false
+      },
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name",
+          "options": {
+            "infoText": "The user-friendly Service Name"
+          },
+          "default": ""
+        },
+        "alias": {
+          "type": "string",
+          "title": "Alias",
+          "options": {
+            "infoText": "The machine friendly name (lowercase, no special characters). This is used in the API request as a parameter. EX: /api/services/[alias]"
+          },
+          "default": ""
+        },
+        "description": {
+          "type": "string",
+          "format": "textarea",
+          "title": "Description",
+          "options": {
+            "infoText": "Details about the service (optional)"
+          },
+          "default": ""
+        },
+        "endpoint": {
+          "type": "string",
+          "title": "Endpoint",
+          "options": {
+            "infoText": "The service URL"
+          },
+          "default": ""
+        },
+        "requiredHeaders": {
+          "type": "string",
+          "format": "textarea",
+          "title": "Required Headers",
+          "options": {
+            "infoText": "A comma seperated list of header name value pairs. EX: X-Api-Key: gAQl1iqb715ixnXjG8ib44LabdMCi81e4UXhMlZQ, Content-Type: application/json"
+          },
+          "default": ""
+        },
+        "excludedHeaders": {
+          "type": "string",
+          "format": "textarea",
+          "title": "Excluded Headers",
+          "options": {
+            "infoText": "Enter a comma delimited string of headers names that should NOT be forwarded. Ex: cache-control, accept"
+          },
+          "default": ""
+        }
+      }
+    }
+  }
+}
