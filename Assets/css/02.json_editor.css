@@ -1,0 +1,219 @@
+/** Generic styling for JSON Editor */
+.apiservices_jsoneditor h3 {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 0 5px 0;
+}
+
+.apiservices_jsoneditor .btn-md i.fa {
+    font-size: 15px;
+}
+
+.apiservices_jsoneditor i.fa-caret-right,
+.apiservices_jsoneditor i.fa-caret-down {
+    font-size: 20px;
+}
+
+.apiservices_jsoneditor i.fa-caret-square-o-right,
+.apiservices_jsoneditor i.fa-caret-square-o-down {
+    font-size: 16px;
+}
+
+.apiservices_jsoneditor .btn-group.btn-left {
+    margin-bottom: 8px;
+}
+
+/* Hidden nav items in this group cause border radius to look strange */
+.apiservices_jsoneditor .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.apiservices_jsoneditor .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle),
+.apiservices_jsoneditor .btn-group.btn-left .btn {
+    border-radius: 3px;
+}
+
+.apiservices_jsoneditor .btn-group.btn-right .btn {
+    margin-left: 8px;
+    border-radius: 3px;
+}
+
+.apiservices_jsoneditor .btn-group .btn-secondary {
+    background: transparent;
+}
+
+.apiservices_jsoneditor .btn-group .btn-secondary.active {
+    background: transparent;
+}
+
+/* Show the expandable headers as clickable */
+.apiservices_jsoneditor > div > h3 span {
+    cursor: pointer;
+}
+
+/* Hide the root definition as it'd be a duplicate label in this case. */
+.apiservices_jsoneditor > div > h3 {
+    display: none;
+}
+
+.apiservices_jsoneditor > div > .well {
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.apiservices_jsoneditor .well {
+    background: rgba(145, 145, 145, .1);
+    border: 1px solid rgba(45, 45, 45, .1);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Prevent faulty glyphicon load */
+.apiservices_jsoneditor .glyphicon {
+    font-family: "Courier New", monospace !important;
+}
+
+/* Styling tooltips */
+.apiservices_jsoneditor .glyphicon-info-sign.pull-right {
+    float: none !important;
+    margin-left: 5px;
+    margin-right: 4px;
+    top: 0px;
+}
+
+/* Positioning tooltips in tables */
+.apiservices_jsoneditor td > div > .glyphicon-info-sign.pull-right {
+    position: absolute !important;
+    top: 34px !important;
+    margin: 0 0 0 -16px;
+    height: 0;
+}
+
+.apiservices_jsoneditor td > div > .glyphicon-info-sign.pull-right:before {
+    opacity: 0;
+    width: 60px;
+}
+
+.apiservices_jsoneditor .glyphicon-info-sign:before {
+    content: "\f059";
+    display: inline-block;
+    font: normal normal normal 12px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.apiservices_jsoneditor .glyphicon-info-sign span {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif !important;
+    z-index: 1000;
+    transform: translateX(0.5rem) translateY(-0.5rem) !important;
+}
+
+/* Table styles */
+.apiservices_jsoneditor table.table-bordered {
+    min-width: 100%;
+    border: 0;
+}
+
+.apiservices_jsoneditor table.table-bordered,
+.apiservices_jsoneditor table.table-bordered > thead > tr > th,
+.apiservices_jsoneditor table.table-bordered > tbody > tr > th,
+.apiservices_jsoneditor table.table-bordered > tbody > tr > td,
+.apiservices_jsoneditor table.table-bordered > tfoot > tr > td,
+.apiservices_jsoneditor table.table-bordered > tfoot > tr > th {
+    border-left: 0;
+    border-right: 0;
+    padding: 4px 4px;
+}
+
+.apiservices_jsoneditor table .form-group {
+    margin-bottom: 0;
+}
+
+.apiservices_jsoneditor h3 {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 0 5px 0;
+}
+
+.apiservices_jsoneditor .btn-md i.fa {
+    font-size: 15px;
+}
+
+.apiservices_jsoneditor i.fa-caret-right,
+.apiservices_jsoneditor i.fa-caret-down {
+    font-size: 20px;
+}
+
+.apiservices_jsoneditor i.fa-caret-square-o-right,
+.apiservices_jsoneditor i.fa-caret-square-o-down {
+    font-size: 16px;
+}
+
+.apiservices_jsoneditor .btn-group.btn-left {
+    margin-bottom: 8px;
+}
+
+/* Hidden nav items in this group cause border radius to look strange */
+.apiservices_jsoneditor .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.apiservices_jsoneditor .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle),
+.apiservices_jsoneditor .btn-group.btn-left .btn {
+    border-radius: 3px;
+}
+
+.apiservices_jsoneditor .btn-group.btn-right .btn {
+    margin-left: 8px;
+    border-radius: 3px;
+}
+
+.apiservices_jsoneditor .btn-group .btn-secondary {
+    background: transparent;
+}
+
+.apiservices_jsoneditor .btn-group .btn-secondary.active {
+    background: transparent;
+}
+
+/* Show the expandable headers as clickable */
+.apiservices_jsoneditor div > h3 span {
+    cursor: pointer;
+}
+
+/* Hide the root definition as it'd be a duplicate label in this case. */
+.apiservices_jsoneditor > div > h3 {
+    display: none;
+}
+
+.apiservices_jsoneditor > div > .well {
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.apiservices_jsoneditor .well {
+    background: rgba(145, 145, 145, .1);
+    border: 1px solid rgba(45, 45, 45, .1);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Prevent faulty glyphicon load */
+.apiservices_jsoneditor .glyphicon {
+    font-family: "Courier New", monospace;
+}
+
+/* Positioning tooltips in tables */
+.apiservices_jsoneditor td > div > .glyphicon-info-sign.pull-right {
+    position: absolute !important;
+    top: 50px;
+    margin: 0 0 0 -16px;
+    height: 0;
+}

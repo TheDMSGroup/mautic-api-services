@@ -61,79 +61,37 @@ class ApiServicesIntegration extends AbstractIntegration
     {
         if ('features' == $formArea) {
             $builder->add(
-                'api_services_name',
-                'text',
+                'api_services_settings',
+                'textarea',
                 [
-                    'label'      => 'mautic.api_services.name',
-                    'data'       => !isset($data['api_services_name']) ? null : $data['api_services_name'],
+                    'data'       => !isset($data['api_services_settings']) ? null : $data['api_services_settings'],
+                    'label'      => false,
                     'attr'       => [
                         'class'   => 'form-control',
                         'tooltip' => 'mautic.api_services.form.config.name',
-                    ],
-                ]
-            );
-
-            $builder->add(
-                'api_services_alias',
-                'text',
-                [
-                    'label'      => 'mautic.api_services.alias',
-                    'data'       => !isset($data['api_services_alias']) ? null : $data['api_services_alias'],
-                    'attr'       => [
-                        'class'   => 'form-control',
-                        'tooltip' => 'mautic.api_services.form.config.alias',
-                    ],
-                ]
-            );
-
-            $builder->add(
-                'api_services_endpoint',
-                'text',
-                [
-                    'label'      => 'mautic.api_services.endpoint',
-                    'data'       => !isset($data['api_services_endpoint']) ? null : $data['api_services_endpoint'],
-                    'attr'       => [
-                        'class'   => 'form-control',
-                        'tooltip' => 'mautic.api_services.form.config.endpoint',
-                    ],
-                ]
-            );
-            $builder->add(
-                'api_services_description',
-                'textarea',
-                [
-                    'label'      => 'mautic.api_services.description',
-                    'data'       => !isset($data['api_services_description']) ? null : $data['api_services_description'],
-                    'attr'       => [
-                        'class'   => 'form-control',
-                        'tooltip' => 'mautic.api_services.form.config.description',
-                    ],
-                ]
-            );
-            $builder->add(
-                'api_services_headers',
-                'textarea',
-                [
-                    'label'      => 'mautic.api_services.headers',
-                    'data'       => !isset($data['api_services_apikey']) ? null : $data['api_services_headers'],
-                    'attr'       => [
-                        'class'   => 'form-control',
-                        'tooltip' => 'mautic.api_services.form.config.headers',
-                    ],
-                ]
-            );
-            $builder->add(
-                'api_services_exclude_headers',
-                'textarea',
-                [
-                    'label'      => 'mautic.api_services.exclude_headers',
-                    'data'       => !isset($data['api_services_exclude_headers']) ? null : $data['api_services_exclude_headers'],
-                    'attr'       => [
-                        'class'   => 'form-control',
-                        'tooltip' => 'mautic.api_services.form.config.exclude_headers',
+                        'rows'    => 10,
                     ],
                 ]
             );
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @param $section
+     *
+     * @return string|array
+     */
+    public function getFormNotes($section)
+    {
+        if ('custom' === $section) {
+            return [
+                'template'   => 'MauticApiServicesBundle:Integration:form.html.php',
+                'parameters' => [],
+            ];
+        }
+
+        return parent::getFormNotes($section);
     }
 }
