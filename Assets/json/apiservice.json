@@ -8,7 +8,7 @@
   },
   "properties": {
     "apiservice": {
-      "title": "Service Definitions",
+      "title": "API Service Definitions",
       "type": "array",
       "format": "grid",
       "uniqueItems": true,
