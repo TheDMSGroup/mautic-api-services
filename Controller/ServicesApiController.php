@@ -100,12 +100,6 @@ class ServicesApiController extends CommonApiController
         $data         = $this->client->request('GET', $url, $guzzleSettings);
         $responceBody = $data->getBody()->getContents();
 
-        // return service responce to requestor
-        // $view    = $this->view($responceBody, Codes::HTTP_OK);
-        // $context = SerializationContext::create()->setGroups(['apiServices']);
-        // //$view->setSerializationContext($context);
-        // $view->setContext($context);
-
         $response = new Response($responceBody, $data->getStatusCode(), $data->getHeaders());
 
         return $response;
