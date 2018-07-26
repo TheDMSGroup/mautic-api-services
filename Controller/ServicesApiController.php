@@ -35,17 +35,27 @@ class ServicesApiController extends CommonApiController
         $params['content'] = $content;
         $body              = json_encode($params);
 
+        // Get Settings for this request
+        $apiServicesSettings      = $this->getIntegrationSetting();
+        $json                     = $apiServicesSettings['api_services_settings'];
+        $apiServiceArray          = \GuzzleHttp\json_decode($json, true);
+        $apiServices              = $apiServiceArray['apiservice'];
+        foreach ($apiServices as $apiService) {
+            if ($apiService['alias'] === $service) {
+                break;
+            }
+        }
+
         // build request headers
-        $blacklist = [
+        $curlHeaders   = [];
+        $blacklist     = [
             'authorization',
             'cookie',
             'php-auth-user',
             'php-auth-pw',
             'x-php-ob-level',
         ];
-        $curlHeaders   = [];
-        $settings      = $this->getIntegrationSetting();
-        $configHeaders = explode(',', $settings['api_services_headers']);
+        $configHeaders = explode(',', $apiService['requiredHeaders']);
         foreach ($configHeaders as $configHeader) {
             $headerValue = explode(':', $configHeader);
             if (isset($headerValue[0]) && isset($headerValue[1])) {
@@ -53,7 +63,7 @@ class ServicesApiController extends CommonApiController
                 $curlHeaders[trim($headerValue[0])] = trim($headerValue[1]);
             }
         }
-        $excludeHeadersStr = $settings['api_services_exclude_headers'];
+        $excludeHeadersStr = $apiService['excludedHeaders'];
         $excludeHeaders    = explode(',', $excludeHeadersStr);
         foreach ($excludeHeaders as $excludeHeader) {
             $blacklist[] = trim($excludeHeader);
@@ -65,9 +75,9 @@ class ServicesApiController extends CommonApiController
             }
         }
 
-        $url = $settings['api_services_endpoint'];
+        $url = $apiService['endpoint'];
 
-        $settings = [
+        $guzzleSettings = [
             'allow_redirects' => [
                 'max'             => 10,
                 'strict'          => false,
@@ -85,8 +95,8 @@ class ServicesApiController extends CommonApiController
             'body'            => $body,
         ];
 
-        $this->client = new Client($settings);
-        $data         = $this->client->request('GET', $url, $settings);
+        $this->client = new Client($guzzleSettings);
+        $data         = $this->client->request('GET', $url, $guzzleSettings);
         $responceBody = $data->getBody()->getContents();
 
         // return service responce to requestor
