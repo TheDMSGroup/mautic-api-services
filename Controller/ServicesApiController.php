@@ -15,6 +15,7 @@ use FOS\RestBundle\Util\Codes;
 use GuzzleHttp\Client;
 use JMS\Serializer\SerializationContext;
 use Mautic\ApiBundle\Controller\CommonApiController;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class FieldApiController.
@@ -100,11 +101,14 @@ class ServicesApiController extends CommonApiController
         $responceBody = $data->getBody()->getContents();
 
         // return service responce to requestor
-        $view    = $this->view($responceBody, Codes::HTTP_OK);
-        $context = SerializationContext::create()->setGroups(['apiServices']);
-        $view->setSerializationContext($context);
+        // $view    = $this->view($responceBody, Codes::HTTP_OK);
+        // $context = SerializationContext::create()->setGroups(['apiServices']);
+        // //$view->setSerializationContext($context);
+        // $view->setContext($context);
 
-        return $this->handleView($view);
+        $response = new Response($responceBody, $data->getStatusCode(), $data->getHeaders());
+
+        return $response;
     }
 
     /**
