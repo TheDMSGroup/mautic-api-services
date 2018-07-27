@@ -11,9 +11,7 @@
 
 namespace MauticPlugin\MauticApiServicesBundle\Controller;
 
-use FOS\RestBundle\Util\Codes;
 use GuzzleHttp\Client;
-use JMS\Serializer\SerializationContext;
 use Mautic\ApiBundle\Controller\CommonApiController;
 use Symfony\Component\HttpFoundation\Response;
 
