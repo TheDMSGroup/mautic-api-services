@@ -11,10 +11,9 @@
 
 namespace MauticPlugin\MauticApiServicesBundle\Controller;
 
-use FOS\RestBundle\Util\Codes;
 use GuzzleHttp\Client;
-use JMS\Serializer\SerializationContext;
 use Mautic\ApiBundle\Controller\CommonApiController;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class FieldApiController.
@@ -99,12 +98,9 @@ class ServicesApiController extends CommonApiController
         $data         = $this->client->request('GET', $url, $guzzleSettings);
         $responceBody = $data->getBody()->getContents();
 
-        // return service responce to requestor
-        $view    = $this->view($responceBody, Codes::HTTP_OK);
-        $context = SerializationContext::create()->setGroups(['apiServices']);
-        $view->setSerializationContext($context);
+        $response = new Response($responceBody, $data->getStatusCode(), $data->getHeaders());
 
-        return $this->handleView($view);
+        return $response;
     }
 
     /**
