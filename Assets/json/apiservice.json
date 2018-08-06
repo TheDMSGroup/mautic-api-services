@@ -63,6 +63,47 @@
           },
           "default": ""
         },
+        "method": {
+          "type": "string",
+          "title": "Http Method",
+          "options": {
+            "infoText": "GET or POST"
+          },
+          "default": "post",
+          "enumSource": [
+            {
+              "source": [
+                {
+                  "value": "get",
+                  "title": "GET"
+                },
+                {
+                  "value": "head",
+                  "title": "HEAD"
+                },
+                {
+                  "value": "post",
+                  "title": "POST"
+                },
+                {
+                  "value": "put",
+                  "title": "PUT"
+                },
+                {
+                  "value": "delete",
+                  "title": "DELETE"
+                },
+                {
+                  "value": "patch",
+                  "title": "PATCH"
+                }
+              ],
+              "title": "{{item.title}}",
+              "value": "{{item.value}}"
+            }
+          ]
+
+        },
         "requiredHeaders": {
           "type": "string",
           "format": "textarea",
