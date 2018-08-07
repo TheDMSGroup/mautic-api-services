@@ -95,7 +95,7 @@ class ServicesApiController extends CommonApiController
         ];
 
         $this->client = new Client($guzzleSettings);
-        $data         = $this->client->request('GET', $url, $guzzleSettings);
+        $data         = $this->client->request(isset($apiService['method']) ? $apiService['method'] : 'POST', $url, $guzzleSettings);
         $responceBody = $data->getBody()->getContents();
 
         $response = new Response($responceBody, $data->getStatusCode(), $data->getHeaders());
